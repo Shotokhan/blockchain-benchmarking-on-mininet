@@ -15,7 +15,7 @@ if [ ! -d "$HOME/blockchain-benchmarking-on-mininet" ]; then
 fi
 cp -r blockchain-benchmarking-on-mininet/* ./
 cp custom/* mininet/custom
-if [ -f "decrypt.sh" && -f "get_java.sh" ]; then
+if [ -f "decrypt.sh" ] && [ -f "get_java.sh" ]; then
 	./get_java.sh
 	./decrypt.sh
 fi
