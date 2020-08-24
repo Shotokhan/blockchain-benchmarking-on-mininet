@@ -1,0 +1,14 @@
+# alcuni campi non devono essere modificati (quelli senza < >), altri devono essere modificati opportunamente per permettere agli host di avere la loro configurazione nell'overlay network (overlay rispetto a mininet), e quindi bisogna creare una copia della cartella NXT-EVAL ciascuna con il suo file nxt.properties per ogni host
+nxt.myAddress=<ip dell'host hi>
+nxt.testnetPeers=<ip di un host peer>;<ip di un altro host peer>;...;<ip di un host peer>
+# il default sendToPeersLimit era 10, significava "considera una nuova transazione o blocco inviato con successo dopo che è stato ricevuto da 10 peers"
+nxt.sendToPeersLimit=1
+# la piattaforma dovrebbe essere rilevata in automatico
+# nxt.myPlatform=Linux i386
+# ho messo una configurazione molto permissiva per rendere più semplice lo sviluppo dei test
+# accetta richieste HTTP in arrivo da qualsiasi host, il default era solo localhost
+nxt.allowedBotHosts=*
+# interfaccia dell'host sulla quale ascoltare richieste HTTP in arrivo, il default era solo localhost, 0.0.0.0 significa "tutte le interfacce"
+nxt.apiServerHost=0.0.0.0
+# non chiedere la password per richieste HTTP privilegiate
+nxt.disableAdminPassword=true
