@@ -39,8 +39,5 @@ sudo apt-get -y install ethereum
 # mkdir ethnet
 # cd ethnet
 # echo "password" > pwdfile
-mkdir ethnet
-cd ethnet
-echo "password" > pwdfile
 # bootnode -genkey boot.key
 # bootnode -nodekey boot.key -writeaddress > public_boot
