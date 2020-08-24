@@ -7,6 +7,7 @@ sudo usermod -a -G pcap $USER
 sudo chgrp pcap /usr/sbin/tcpdump
 sudo chmod 750 /usr/sbin/tcpdump
 sudo setcap cap_net_raw,cap_net_admin=eip /usr/sbin/tcpdump
+sudo apt-get -y update
 sudo apt-get -y install gnupg-agent
 sudo apt-get -y install gnupg2
 if [ ! -d "$HOME/blockchain-benchmarking-on-mininet" ]; then
@@ -22,7 +23,6 @@ sudo mkdir /usr/java
 sudo mv jre1.8.0_201 /usr/java/
 echo 'export PATH="/usr/java/jre1.8.0_201/bin/:$PATH"' >> ./.bashrc
 source ./.bashrc
-sudo apt-get -y update
 sudo apt-get -y install curl
 mkdir Captures
 mkdir Proc_Logs
