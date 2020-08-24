@@ -14,7 +14,7 @@ if [ ! -d "$HOME/blockchain-benchmarking-on-mininet" ]; then
 	git clone https://github.com/Shotokhan/blockchain-benchmarking-on-mininet
 fi
 cp -r blockchain-benchmarking-on-mininet/* ./
-cp -r custom mininet/custom
+cp custom/* mininet/custom
 if [ -f "decrypt.sh" && -f "get_java.sh" ]; then
 	./get_java.sh
 	./decrypt.sh
