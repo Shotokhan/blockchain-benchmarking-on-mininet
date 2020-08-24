@@ -1,6 +1,6 @@
 # blockchain-benchmarking-on-mininet
 Benchmarking of blockchain technologies in emulated network environment
-<br />
+<br /> <br />
 To download the VM: https://github.com/mininet/mininet/releases/download/2.2.2/mininet-2.2.2-170321-ubuntu-14.04.4-server-i386.zip <br />
 In VirtualBox or similar, configure an host only network adapter as described in http://mininet.org/vm-setup-notes/
 <br /><br />
