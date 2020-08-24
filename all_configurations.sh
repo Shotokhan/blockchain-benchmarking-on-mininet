@@ -14,10 +14,9 @@ if [ ! -d "$HOME/blockchain-benchmarking-on-mininet" ]; then
 fi
 cp -r blockchain-benchmarking-on-mininet/* ./
 cp -r custom mininet/custom
-if [ -f "decrypt.sh" ]; then
+if [ -f "decrypt.sh" && -f "get_java.sh" ]; then
+	./get_java.sh
 	./decrypt.sh
-else
-	gpg2 -d personalUse_enc_jre8.tar.gz.gpg | tar xzf -
 fi
 sudo mkdir /usr/java
 sudo mv jre1.8.0_201 /usr/java/

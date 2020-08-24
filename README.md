@@ -4,7 +4,7 @@ Benchmarking of blockchain technologies in emulated network environment
 To download the VM: https://github.com/mininet/mininet/releases/download/2.2.2/mininet-2.2.2-170321-ubuntu-14.04.4-server-i386.zip
 In VirtualBox or similar, configure an host only network adapter as described in http://mininet.org/vm-setup-notes/
 
-You can easily setup the test environment by running all_configurations.sh script; but, the script will ask you a password to decrypt the file which contains Oracle Java 8. It is of personal use, so I can't openly share it: this is the private part of this repository. But anyone can download it here: https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html#license-lightbox after registering to Oracle. Then, to execute all_configurations.sh , extract the java archive in your home folder, and create a decrypt.sh script that does nothing more than a hello world.
+You can easily setup the test environment by running all_configurations.sh script; but, the script will ask you a password to decrypt the file which contains Oracle Java 8. It is of personal use, so I can't openly share it: this is the private part of this repository. But anyone can download it here: https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html#license-lightbox after registering to Oracle. Then, to execute all_configurations.sh , extract the java archive in your home folder, and create a decrypt.sh script that does nothing more than a hello world. Same for get_java.sh
 
 To properly run the experiments and log the results, change directory in /home/mininet/mininet/custom on the VM, and then:
 
