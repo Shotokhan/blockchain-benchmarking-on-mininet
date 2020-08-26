@@ -1,6 +1,0 @@
-2020-08-05 04:53:21 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLException: Table "VERSION" not found; SQL statement:
-SELECT next_update FROM version [42102-194]
-2020-08-05 06:32:00 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLException: Table "INFORMATION_SCHEMA" not found; SQL statement:
-select * from INFORMATION_SCHEMA [42102-194]
