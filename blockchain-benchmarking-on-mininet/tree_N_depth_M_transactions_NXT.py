@@ -107,7 +107,7 @@ def run(depth, number_of_TX):
     export_TPS_to_CSV('Analysis/TPS_measures_{}_{}.csv'.format(script_name, unique), obs_dict)
     mean_TPS = sum(observer.TPS() for observer in observers) / len(observers)
     tshark_output_to_CSV('Analysis/traffic_volume_{}_{}.csv'.format(script_name, unique), 'Captures/traffic_h1_{}_{}.pcap'.format(script_name, unique), 'websocket')
-    total_traffic = tshark_total_traffic('Captures/traffic_h1_{}_{}.pcap'.format(script_name, unique), ['websocket', 'http'])
+    total_traffic = tshark_total_traffic('Captures/traffic_h1_{}_{}.pcap'.format(script_name, unique), ['udp', 'tcp'])
     return [mean_TPS, total_traffic]
     
 
