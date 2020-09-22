@@ -32,7 +32,7 @@ def make_plots(log_name, yaxis='percentage'):
         plt.close()
 
 
-def make_parametric_plots(outfile_prefix, parameter_name, parametric_data, fields, legend_position):
+def make_parametric_plots(outfile_prefix, parameter_name, parametric_data, fields, legend_position, axis_list=None):
     n_cols = len(fields)
     for j in range(1, n_cols):
         doit=0
@@ -44,6 +44,8 @@ def make_parametric_plots(outfile_prefix, parameter_name, parametric_data, field
             if doit==0:
                 plt.xlabel(fields[0])
                 plt.ylabel(fields[j])
+                if axis_list is not None:
+                    plt.axis(axis_list[j-1])
                 doit=1
         plt.legend(loc=legend_position)
         plt.savefig("{}_{}_plot.png".format(outfile_prefix, fields[j]))
@@ -51,15 +53,26 @@ def make_parametric_plots(outfile_prefix, parameter_name, parametric_data, field
             
 
 if __name__=="__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python make_plots.py <file_name>")
-        print("File name must be of the format:")
+    if len(sys.argv) < 3:
+        print("Usage: python make_plots.py <outfile_prefix> <file_name_1> ... <file_name_N>")
+        print("Files must be of the format:")
         print("<Time column> <Data column1> ... <Data columnN>")
     else:
-        # make_plots(sys.argv[1])
+        fields = ['Number of TX', 'Mean TPS', 'Mean total bytes of node traffic']
+        xlow, xhigh, ylow = 0, 10000, 0
+        yhigh_1, yhigh_2 = 3, 7000000
+        axis_list = [[xlow, xhigh, ylow, yhigh_1], [xlow, xhigh, ylow, yhigh_2]]
+        outfile_prefix = sys.argv[1]
+        files = [sys.argv[i] for i in range(2, len(sys.argv))]
         data = {}
-        data[2] = [[i, 2*i, i**2] for i in range(100)]
-        data[4] = [[i, 4*i, i] for i in range(100)]
-        make_parametric_plots(sys.argv[1], 'peers', data, ['tx', 'tps', 'traffic'], 'lower right')
+        keys = [2**(i-1) for i in range(2, len(sys.argv))]
+        j = 0
+        for file in files:
+            with open(file, 'r') as f:
+                rows = csv.reader(f)
+                rows = [line for line in rows]
+            data[keys[j]] = [rows[i] for i in range(1, len(rows))]
+            j += 1
+        make_parametric_plots(outfile_prefix, 'Peer(s)', data, fields, 'lower right', axis_list)
         
 
